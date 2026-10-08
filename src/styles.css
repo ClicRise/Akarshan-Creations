@@ -113,3 +113,7 @@
   .policy-section h2{font-size:33px}
   .policy-section p{font-size:14px}
 }
+
+/* Keep each product enquiry link on the same baseline within its grid row. */
+.product-card{display:flex;flex-direction:column}
+.product-enquire{margin-top:auto!important}
