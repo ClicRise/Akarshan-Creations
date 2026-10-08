@@ -15,3 +15,10 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 .ordering-summary{display:flex;justify-content:space-between;gap:24px;align-items:center;font-size:11px;color:var(--muted-foreground)}.ordering-summary p{max-width:730px}.gallery-preview h3{font-size:23px;margin-top:12px}.gallery-preview:has(h3){margin-top:30px}@media(max-width:540px){.ordering-summary{flex-direction:column;align-items:flex-start;gap:15px}.gallery-preview h3{font-size:21px}}
+
+/* Enquire link — editorial underline with animated arrow (replaces the ghost hover box) */
+.product-enquire{display:inline-flex!important;justify-content:flex-start!important;gap:7px;padding:0 0 7px!important;height:auto!important;min-height:0;background:transparent!important;color:var(--foreground);font-size:10px!important;letter-spacing:.3px;margin-top:12px;border:0;border-bottom:1px solid var(--border);border-radius:0!important;transition:color .25s ease,border-color .25s ease}
+.product-enquire:hover,.product-enquire:focus-visible{background:transparent!important;color:var(--primary);border-bottom-color:var(--clay)}
+.product-enquire svg{transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.product-enquire:hover svg,.product-enquire:focus-visible svg{transform:translate(2px,-2px)}
+@media(max-width:540px){.product-enquire{font-size:8px!important;gap:5px;padding:0 0 6px!important}}
