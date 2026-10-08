@@ -116,4 +116,4 @@
 
 /* Keep each product enquiry link on the same baseline within its grid row. */
 .product-card{display:flex;flex-direction:column}
-.product-enquire{margin-top:auto!important}
+.product-enquire{margin-top:auto!important;padding-top:12px!important}
