@@ -32,6 +32,14 @@ npm run dev
 
 Seven public pages are prerendered. There are no accounts, payment processing, database, private keys, or runtime server requirements for the static delivery. WhatsApp opens an editable enquiry; it never confirms an order.
 
+### GitHub Pages deployment
+
+The `Deploy to GitHub Pages` workflow builds and publishes the site whenever a commit reaches `main`, or when started manually from the Actions tab. It configures the repository subpath automatically, prerenders all seven pages, and packages the product photos into the Pages artifact.
+
+To enable it, open the repository's **Settings → Pages**, select **GitHub Actions** as the build and deployment source, then run the workflow from **Actions → Deploy to GitHub Pages → Run workflow**. Later commits to `main` deploy automatically. The project site URL is `https://clicrise.github.io/Akarshan-Creations/` once the first deployment completes. No custom domain or server is required.
+
+The workflow downloads the current product photos from the Lovable preview origin configured in `.github/workflows/deploy-pages.yml`. If those photos move, update `ASSET_ORIGIN` there to the origin that serves the existing `/__l5e/assets-v1/...` paths. For a local Pages-equivalent build, run `VITE_BASE_PATH=/Akarshan-Creations/ bun run build` followed by `OUTPUT_DIR=github-pages bun run scripts/prepare-hostinger.mjs`.
+
 ### Hostinger static delivery
 
 1. Install dependencies with `bun install`.

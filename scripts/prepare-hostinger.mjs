@@ -9,7 +9,7 @@ for (const candidate of candidates) {
 if (!source) throw new Error('Build first. No prerendered index.html was found in dist/client or .output/public.');
 const pages=['about','creations','custom-orders','gallery','contact','shipping-policy'];
 for (const page of pages) await access(path.join(source,page,'index.html'));
-const output='hostinger-static';
+const output=process.env.OUTPUT_DIR || 'hostinger-static';
 await mkdir(output,{recursive:true});
 await cp(source,output,{recursive:true});
 const origin=process.env.ASSET_ORIGIN || 'https://id-preview--cdfd2005-02aa-475f-9e25-8370c15a52d4.lovable.app';
@@ -23,4 +23,5 @@ for (const file of await readdir('src/assets')) {
  await mkdir(path.dirname(destination),{recursive:true});
  await writeFile(destination,new Uint8Array(await response.arrayBuffer()));
 }
-console.log('Static website ready in hostinger-static/. Upload its contents to public_html.');
+await writeFile(path.join(output,'.nojekyll'),'');
+console.log(`Static website ready in ${output}/.`);

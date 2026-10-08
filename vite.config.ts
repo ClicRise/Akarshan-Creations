@@ -7,6 +7,11 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    // Set VITE_BASE_PATH to the repository path when building for GitHub Pages.
+    // Local development and root-domain hosting continue to use "/".
+    base: process.env.VITE_BASE_PATH || "/",
+  },
   tanstackStart: {
     pages: ["/", "/about", "/creations", "/custom-orders", "/gallery", "/contact", "/shipping-policy"].map(path => ({ path })),
     prerender: { enabled: true, autoStaticPathsDiscovery: false },
