@@ -12,3 +12,4 @@
 - Keep the storefront as seven TanStack file routes with a shared header/footer; each section needs a direct, static-hostable URL.
 - Keep product records and WhatsApp message construction centralized in the browser-safe catalog module so enquiries consistently reflect selected products.
 - Prerender only the explicit public page list; the Hostinger deployment serves static HTML and requires no server or secrets.
+- Keep Hostinger asset packaging as a local-only script that copies prerendered public output and downloads the supplied CDN photos, so external static hosting does not depend on Lovable's asset-serving proxy.
