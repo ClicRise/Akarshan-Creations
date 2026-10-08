@@ -22,3 +22,94 @@
 .product-enquire svg{transition:transform .3s cubic-bezier(.2,.7,.3,1)}
 .product-enquire:hover svg,.product-enquire:focus-visible svg{transform:translate(2px,-2px)}
 @media(max-width:540px){.product-enquire{font-size:8px!important;gap:5px;padding:0 0 6px!important}}
+
+/* Improve readability on tablet and mobile without changing the hero. */
+@media(max-width:800px){
+  body{font-size:16px}
+  .announcement{font-size:12px}
+  .mobile-nav a{font-size:16px}
+  .eyebrow{font-size:11px}
+  .text-link{font-size:13px}
+  .category-tile h3{font-size:22px}
+  .category-tile span{font-size:12px}
+  .product-tag{font-size:11px}
+  .product-meta{font-size:12px}
+  .product-meta>span:last-child{font-size:14px}
+  .product-meta small{font-size:11px}
+  .product-card h3{font-size:25px}
+  .product-card p{font-size:13px}
+  .product-enquire{font-size:12px!important}
+  .sample-note{font-size:12px}
+  .occasion-links a{font-size:13px}
+  .art-story p{font-size:14px}
+  .custom-banner p{font-size:14px}
+  .custom-banner a{font-size:13px}
+  .instagram-heading p{font-size:14px}
+  .ordering-grid strong{font-size:13px}
+  .ordering-grid small{font-size:11px}
+  .ordering-summary{font-size:13px}
+  .footer-grid p,.footer-grid>div>a:not(.brand),.footer-grid>div>span{font-size:13px}
+  .footer-grid h3{font-size:13px}
+  .footer-bottom{font-size:11px}
+  .page-intro h1{font-size:51px}
+  .page-intro p{font-size:15px}
+  .search-box input{font-size:14px}
+  .sort-select{font-size:13px}
+  .filters button{font-size:12px}
+  .result-count{font-size:13px}
+  .gallery-item h3{font-size:23px}
+  .gallery-item p{font-size:12px}
+  .lightbox-caption{font-size:15px}
+  .lightbox-caption small{font-size:12px}
+  .detail-content h2{font-size:44px}
+  .detail-content p{font-size:14px}
+  .steps-grid h3{font-size:28px}
+  .steps-grid p{font-size:14px}
+  .custom-form-section h2{font-size:49px}
+  .custom-form-section p{font-size:15px}
+  .custom-form label{font-size:13px}
+  .custom-form input,.custom-form select,.custom-form textarea{font-size:15px}
+  .custom-form small{font-size:12px}
+  .contact-details h2{font-size:46px}
+  .contact-details>p{font-size:15px}
+  .contact-method strong,.contact-method span{font-size:14px}
+  .contact-facts{font-size:14px}
+  .policy-section h2{font-size:34px}
+  .policy-section p{font-size:15px}
+  .policy-note{font-size:13px}
+}
+
+@media(max-width:540px){
+  .announcement{font-size:10px}
+  .brand small{font-size:8px}
+  .header-whatsapp{font-size:12px}
+  .category-tile h3{font-size:23px}
+  .category-tile span{font-size:11px}
+  .product-card h3{font-size:24px}
+  .product-meta{font-size:10px}
+  .product-meta>span:last-child{font-size:13px}
+  .product-meta small{font-size:10px}
+  .product-card p{font-size:12px}
+  .product-enquire{font-size:11px!important}
+  .custom-banner h2{font-size:38px}
+  .custom-banner p{font-size:13px}
+  .ordering-grid strong{font-size:12px}
+  .ordering-grid small{font-size:10px}
+  .footer-bottom{font-size:10px}
+  .page-intro h1{font-size:46px}
+  .page-intro p{font-size:14px}
+  .sort-select{font-size:12px}
+  .filters button{font-size:11px}
+  .gallery-item h3{font-size:22px}
+  .gallery-item p{font-size:11px}
+  .detail-content h2{font-size:36px}
+  .steps-grid h3{font-size:27px}
+  .steps-grid p{font-size:13px}
+  .custom-form-section h2{font-size:42px}
+  .custom-form-section p{font-size:14px}
+  .contact-details h2{font-size:42px}
+  .contact-details>p{font-size:14px}
+  .contact-method strong,.contact-method span{font-size:13px}
+  .policy-section h2{font-size:33px}
+  .policy-section p{font-size:14px}
+}
