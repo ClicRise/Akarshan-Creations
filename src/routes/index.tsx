@@ -1,24 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowUpRight, Instagram } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { CustomBanner, OrderingStrip, ProductCard, SectionTitle, WhatsAppButton } from '@/components/storefront';
+import { customMessage, instagram, pageHead, products } from '@/lib/catalog';
+import bouquet from '@/assets/gift-bouquet.png.asset.json';
+import art from '@/assets/devotional-art.png.asset.json';
+import boxes from '@/assets/personalized-gift-boxes.png.asset.json';
+import cards from '@/assets/chocolate-message-cards.png.asset.json';
+import memories from '@/assets/photo-memory-book.png.asset.json';
+export const Route = createFileRoute('/')({head:()=>pageHead('Handmade Art & Personalized Gifts','Discover handmade artwork, thoughtful gift hampers, personalized cards and memory gifts by Akarshan Creations, New Delhi. Enquire on WhatsApp.'),component:Home});
+const tiles=[{name:'Art & Paintings',category:'Art & Paintings',image:art.url,sub:'Creativity, in every detail'},{name:'Handmade Cards',category:'Handmade Cards',image:cards.url,sub:'Little words. Big feelings.'},{name:'Gift Hampers',category:'Gift Hampers',image:bouquet.url,sub:'A thoughtful little surprise'},{name:'Memory Gifts',category:'Memory Gifts',image:memories.url,sub:'Your moments, beautifully kept'},{name:'Customized Gifts',category:'Customized Gifts',image:boxes.url,sub:'As individual as you are'}];
+function Home(){return <><section className="hero"><img className="hero-image" src={bouquet.url} alt="A handmade gift bouquet with chocolates, photographs and personal accessories" fetchPriority="high"/><div className="container hero-inner"><span className="eyebrow">HANDMADE ART & PERSONALIZED GIFTING</span><h1>Akarshan Creations<br/><em>Beautifully personal.</em></h1><p>Thoughtfully made gifts, handmade art, and little keepsakes for the people and moments that mean everything.</p><div className="hero-buttons"><Button asChild variant="secondary"><Link to="/creations">Explore Our Creations <ArrowUpRight/></Link></Button><a className="hero-secondary" href={`https://wa.me/919084666012?text=${encodeURIComponent(customMessage)}`} target="_blank" rel="noopener noreferrer">Create Something Custom <ArrowUpRight size={16}/></a></div></div><span className="hero-note">FROM NEW DELHI, WITH LOVE</span></section><OrderingStrip/><section className="container section"><SectionTitle eyebrow="A WORLD OF HANDMADE" title="Find your kind of thoughtful." to="/creations"/><div className="category-grid">{tiles.map(t=><Link className="category-tile" key={t.name} to="/creations" search={{category:t.category}}><div className="category-image"><img src={t.image} alt={t.name} width={350} height={440} loading="lazy"/></div><div><h3>{t.name}<ArrowUpRight size={15}/></h3><span>{t.sub}</span></div></Link>)}</div></section><section className="featured-section"><div className="container section"><SectionTitle eyebrow="THE LITTLE THINGS THAT MEAN MORE" title="Creations to fall in love with." to="/creations" label="View the collection"/><div className="product-grid">{products.filter(p=>p.featured).map(p=><ProductCard key={p.id} product={p}/>)}</div><p className="sample-note">Sample collection: product names and prices are illustrative, pending approval. Ask us for the final price and available details.</p></div></section><section className="container section occasion-section"><span className="eyebrow">MADE FOR YOUR MOMENTS</span><h2>A little something for every feeling.</h2><div className="occasion-links">{['Birthdays','Anniversaries',"Valentine’s Day",'Festivals','Milestones','Just Because'].map(o=><Link key={o} to="/creations" search={{occasion:o}}>{o}</Link>)}</div></section><section className="container section art-story"><img className="art-story-image" src={art.url} alt="Hand-painted devotional artwork in progress" loading="lazy"/><div><span className="eyebrow">THE ART OF HANDMADE</span><h2>More than a gift.<br/>A little piece of someone’s creativity.</h2><p>Every handmade creation carries its own character. At Akarshan Creations, creativity, tradition, and your personal touches come together in artwork, cards, keepsakes, and thoughtfully arranged gifts.</p><p>Meet Tripti Sahu, the person behind Akarshan Creations, a handmade art and gifting brand based in New Delhi.</p><div className="signature">Made by hand. Given with heart.</div><Link className="text-link" to="/about">The story behind our creations <ArrowUpRight size={16}/></Link></div></section><CustomBanner/><section className="container section"><SectionTitle eyebrow="A PEEK INTO OUR CREATIVE WORLD" title="Little details. Lovely possibilities." to="/gallery" label="Explore the gallery"/><div className="gallery-preview">{[products[6],products[1],products[4],products[8],products[2],products[7],products[5],products[0]].map(p=>p&&<Link key={p.id} to="/gallery"><img src={p.image} alt={p.name} loading="lazy" width={300} height={300}/></Link>)}</div><div className="instagram-heading"><p>More handmade moments, from our studio to your feed.</p><Button asChild variant="outline"><a href={instagram} target="_blank" rel="noopener noreferrer"><Instagram size={16}/> Follow @akarshan.creations <ArrowUpRight size={16}/></a></Button></div></section><section className="ordering-strip"><div className="container ordering-summary"><p>Orders are coordinated on WhatsApp · Full advance payment required · Typical preparation: 5–7 days, plus shipping transit</p><Link className="text-link" to="/shipping-policy">Ordering & shipping details <ArrowUpRight size={14}/></Link></div></section></>;}
